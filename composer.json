@@ -1,0 +1,23 @@
+{
+    "name": "bvdputte/kirby-bettersearch",
+    "description": "A search plugin for Kirby 3 that searches for full word combinations rather than just individual words.",
+    "license": "MIT",
+    "type": "kirby-plugin",
+    "authors": [
+        {
+            "name": "Bart Vandeputte",
+            "email": "bart.vdputte@gmail.com"
+        }
+    ],
+    "keywords": [
+        "kirby3",
+        "kirby3-plugin",
+        "search"
+    ],
+    "require": {
+        "getkirby/composer-installer": "^1.1"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
