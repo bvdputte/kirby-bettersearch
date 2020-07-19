@@ -10,7 +10,7 @@ A search plugin for Kirby 3 that searches for full word combinations rather than
 
 ## Usage
 
-Instead of the default `$pages` [search method](https://getkirby.com/docs/reference/objects/pages/search), use `$page->bettersearch($string, $options)` instead.
+Instead of the default [`$pages->search()` method](https://getkirby.com/docs/reference/objects/pages/search), use `$pages->bettersearch($string, $options)` instead.
 
 ## Disclaimer
 
