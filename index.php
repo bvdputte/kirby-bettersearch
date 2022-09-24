@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . DS . 'src' . DS . 'bettersearch.php';
+include __DIR__ . '/src/bettersearch.php';
 
 // For composer
 @include_once __DIR__ . '/vendor/autoload.php';
