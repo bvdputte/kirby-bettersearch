@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Fork of the native $pages->search() method
 * Only searches for full matches
@@ -20,6 +21,8 @@ function search($collection, $query, $params = array()) {
 
     if(empty($query)) return $collection->limit(0);
 
+    $searchData = [];
+
     $results = $collection->filter(function($page) use($query, $options) {
         $data = $page->content()->toArray();
         $keys = array_keys($data);
@@ -28,23 +31,34 @@ function search($collection, $query, $params = array()) {
             $keys = array_intersect($keys, $options['fields']);
         }
 
-        $page->searchHits  = 0;
-        $page->searchScore = 0;
+        $searchHits  = 0;
+        $searchScore = 0;
 
         foreach($keys as $key) {
             $score = a::get($options['score'], $key, 1);
 
             // check for full matches
             if($matches = preg_match_all('!' . preg_quote($query) . '!i', $data[$key], $r)) {
-                $page->searchHits  += $matches;
-                $page->searchScore += $matches * $score;
+                $searchHits  += $matches;
+                $searchScore += $matches * $score;
             }
         }
 
-        return $page->searchHits > 0 ? true : false;
+        if($searchHits > 0) {
+            $searchData[$page->id()] = [
+                'searchHits' => $searchHits,
+                'searchScore' => $searchScore
+            ];
+            return true;
+        }
+
+        return false;
     });
 
-    $results = $results->sortBy('searchScore', SORT_DESC);
+    // Sort the search data based on the search score
+    uasort($searchData, function($a, $b) {
+        return $b['searchScore'] - $a['searchScore'];
+    });
 
     return $results;
 }
