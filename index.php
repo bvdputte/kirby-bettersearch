@@ -8,7 +8,12 @@ include __DIR__ . '/src/bettersearch.php';
 Kirby::plugin('bvdputte/kirby-bettersearch', [
     'pagesMethods' => [
         'bettersearch' => function ($query, $params = array()) {
-            return search($this, $query, $params);
+            return bettersearch(kirby(), $this, $query, $params);
+        }
+    ],
+    'siteMethods' => [
+        'bettersearch' => function ($query, $params = array()) {
+            return bettersearch(kirby(), site()->index(), $query, $params);
         }
     ]
 ]);

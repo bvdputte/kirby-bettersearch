@@ -3,10 +3,11 @@
     "description": "A search plugin for Kirby 3 that searches for full word combinations rather than just individual words.",
     "license": "MIT",
     "type": "kirby-plugin",
+    "version": "2.0.0",
     "authors": [
         {
             "name": "Bart Vandeputte",
-            "email": "bart.vdputte@gmail.com"
+            "email": "mail@bartvandeputte.be"
         }
     ],
     "keywords": [
