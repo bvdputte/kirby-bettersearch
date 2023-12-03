@@ -3,7 +3,7 @@
     "description": "A search plugin for Kirby (v3+ that searches for full word combinations rather than just individual words.",
     "license": "MIT",
     "type": "kirby-plugin",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "authors": [
         {
             "name": "Bart Vandeputte",

@@ -30,11 +30,11 @@ function bettersearch(Kirby\Cms\App $kirby, Kirby\Cms\Collection $collection, st
         $keys   = array_keys($data);
         $keys[] = 'id';
 
-        if ($item instanceof User) {
+        if ($item instanceof Kirby\Cms\User) {
             $keys[] = 'name';
             $keys[] = 'email';
             $keys[] = 'role';
-        } elseif ($item instanceof Page) {
+        } elseif ($item instanceof Kirby\Cms\Page) {
             // apply the default score for pages
             $options['score'] = array_merge([
                 'id'    => 64,
