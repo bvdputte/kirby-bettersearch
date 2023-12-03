@@ -5,7 +5,7 @@ include __DIR__ . '/src/bettersearch.php';
 // For composer
 @include_once __DIR__ . '/vendor/autoload.php';
 
-Kirby::plugin('bvdputte/kirby-bettersearch', [
+Kirby::plugin('bvdputte/bettersearch', [
     'pagesMethods' => [
         'bettersearch' => function ($query, $params = array()) {
             return bettersearch(kirby(), $this, $query, $params);
