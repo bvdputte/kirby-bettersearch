@@ -3,7 +3,12 @@
 * Fork of the native search() component
 * Only searches for full matches
 */
-function bettersearch(Kirby\Cms\App $kirby, Kirby\Cms\Collection $collection, string $query = null, $params = []) {
+function bettersearch(
+    Kirby\Cms\App $kirby,
+    Kirby\Cms\Collection $collection,
+    string|null $query = null,
+    string|array $params = []
+) {
     // empty search query
     if (empty(trim($query ?? '')) === true) {
         return $collection->limit(0);
