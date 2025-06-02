@@ -4,7 +4,7 @@
     "license": "MIT",
     "homepage": "https://github.com/bvdputte/kirby-bettersearch/",
     "type": "kirby-plugin",
-    "version": "2.1.1",
+    "version": "2.1.3",
     "authors": [
         {
             "name": "Bart Vandeputte",
