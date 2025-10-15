@@ -63,9 +63,10 @@ function bettersearch(
             $value = $data[$key] ?? (string)$item->$key();
 
             $lowerValue = Str::lower($value);
+            $lowerQuery = Str::lower($query);
 
             // check for exact query matches
-            if ($matches = preg_match_all('!' . preg_quote($query) . '!i', $value, $r)) {
+            if ($matches = preg_match_all('!' . preg_quote($lowerQuery) . '!i', $lowerValue, $r)) {
                 $scoring['score'] += 2 * $score;
                 $scoring['hits']  += $matches;
             }
