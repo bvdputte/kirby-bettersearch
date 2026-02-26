@@ -7,13 +7,13 @@ include __DIR__ . '/src/bettersearch.php';
 
 Kirby::plugin('bvdputte/bettersearch', [
     'pagesMethods' => [
-        'bettersearch' => function ($query, $params = array()) {
-            return bettersearch(kirby(), $this, $query, $params);
+        'bettersearch' => function ($query, $params = array(), $customIndexer = null) {
+            return bettersearch(kirby(), $this, $query, $params, $customIndexer);
         }
     ],
     'siteMethods' => [
-        'bettersearch' => function ($query, $params = array()) {
-            return bettersearch(kirby(), site()->index(), $query, $params);
+        'bettersearch' => function ($query, $params = array(), $customIndexer = null) {
+            return bettersearch(kirby(), site()->index(), $query, $params, $customIndexer);
         }
     ]
 ]);

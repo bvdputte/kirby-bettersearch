@@ -18,6 +18,10 @@ Since we're looking for _full query matches_, following options have been remove
 - minlength
 - words
 
+## customIndexer
+
+If you need to manipulate the `content` somehow, you can now pass a `customIndexer` function into the bettersearch function to alter the content.
+
 ## Disclaimer
 
 This plugin is provided "as is" with no guarantee. Use it at your own risk and always test it yourself before using it in a production environment. If you find any issues, please [create a new issue](https://github.com/bvdputte/kirby-bettersearch/issues/new).

@@ -4,10 +4,11 @@
 * Only searches for full matches
 */
 function bettersearch(
-    Kirby\Cms\App $kirby,
-    Kirby\Cms\Collection $collection,
-    string|null $query = null,
-    string|array $params = []
+	Kirby\Cms\App $kirby,
+	Kirby\Cms\Collection $collection,
+	?string $query = null,
+	string|array $params = [],
+	?callable $customIndexer = null
 ) {
     // empty search query
     if (empty(trim($query ?? '')) === true) {
@@ -30,8 +31,12 @@ function bettersearch(
     if(empty($query)) return $collection->limit(0);
 
     $scores  = [];
-    $results = $collection->filter(function ($item) use ($query, $options, &$scores) {
-        $data   = $item->content()->toArray();
+    $results = $collection->filter(function ($item) use ($query, $options, &$scores, $customIndexer) {
+		if (!is_null($customIndexer)) {
+			$data = $customIndexer($item);
+		} else {
+			$data = $item->content()->toArray();
+		}
         $keys   = array_keys($data);
         $keys[] = 'id';
 
